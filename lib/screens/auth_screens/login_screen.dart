@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_flutter_app/screens/signup_screen.dart';
+import 'package:instagram_flutter_app/screens/auth_screens/signup_screen.dart';
 import 'package:instagram_flutter_app/services/auth_service.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -44,7 +44,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           horizontal: 30, vertical: 10),
                       child: TextFormField(
                         decoration: InputDecoration(labelText: "Email"),
-                        validator: (input) => !input.contains("@")
+                          keyboardType: TextInputType.emailAddress,
+                          textInputAction: TextInputAction.next,
+                          validator: (input) => !input.contains("@")
                             ? "Please enter a valid email"
                             : null,
                         onSaved: (input) => _email = input
@@ -55,7 +57,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           horizontal: 30, vertical: 10),
                       child: TextFormField(
                         decoration: InputDecoration(labelText: "Password"),
-                        validator: (input) => input.length < 6
+                          textInputAction: TextInputAction.done,
+                          validator: (input) => input.length < 6
                             ? "Must be at least 6 charachter"
                             : null,
                         onSaved: (input) => _password = input,

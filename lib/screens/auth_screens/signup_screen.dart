@@ -46,6 +46,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           horizontal: 30, vertical: 10),
                       child: TextFormField(
                         decoration: InputDecoration(labelText: "Name"),
+                        textInputAction: TextInputAction.next,
                         validator: (input) =>
                         input
                             .trim()
@@ -60,6 +61,8 @@ class _SignupScreenState extends State<SignupScreen> {
                           horizontal: 30, vertical: 10),
                       child: TextFormField(
                         decoration: InputDecoration(labelText: "Email"),
+                        textInputAction: TextInputAction.next,
+                        keyboardType: TextInputType.emailAddress,
                         validator: (input) =>
                         !input.contains("@")
                             ? "Please enter a valid email"
@@ -72,6 +75,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           horizontal: 30, vertical: 10),
                       child: TextFormField(
                         decoration: InputDecoration(labelText: "Password"),
+                        textInputAction: TextInputAction.done,
                         validator: (input) =>
                         input.length < 6
                             ? "Must be at least 6 charachter"
